@@ -6,3 +6,4 @@ A function can be marked as pure if and only if all its statements are pure. Vio
 The compiler can be set to issue warnings rather than errors for pure functions violating this rule.
 All functions marked as pure can be optimized by the compiler due to referential transparency.
 Note that a pure function is always nullipotent which is always idempotent, while the converse isn't necessarily true.
+Non void functions not marked with nullipotent nor pure will receive warnings.
