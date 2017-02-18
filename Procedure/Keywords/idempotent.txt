@@ -1,0 +1,9 @@
+idempotent is a keyword for functions in Light Procedure.
+This keyword can't be used with nullipotent nor pure for the same function.
+A function is said to be idempotent if calling it once is exactly the same as calling it more than once consecutively.
+There are built-in idempotent functions and operators.
+A function can only be marked as idempotent if and only if all its statements are idempotent and all idempotent but not nullipotent ones are orthagonal to each other.
+If the compiler can't be sure that 2 idempotent statements are orthagonal to each other, then they'll be regarded as not orthagonal to each other.
+Violating this is a compilation error.
+The compiler can be set to issue warnings rather than errors for idempotent functions violating this rule.
+Note that a nullipotent function is always idempotent, while the converse isn't necessarily true.
