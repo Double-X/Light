@@ -3,4 +3,5 @@ This keyword can't be used with idempotent nor pure for the same function.
 A function is said to be nullipotent if and only if it causes no side effects.
 There are built-in nullipotent functions and operators.
 A function can only be marked as nullipotent if and only if all its statements are nullipotent or pure. Violating this is a compilation error.
+The compiler can be set to issue warnings rather than errors for nullipotent functions violating this rule.
 Note that a pure function is always nullipotent which is always idempotent while the converse isn't necessarily true.
