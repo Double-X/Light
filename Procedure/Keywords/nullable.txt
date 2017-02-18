@@ -1,5 +1,6 @@
 nullable is a keyword for pointers in Light Procedure.
 By default, pointers can't point to null without this keyword. Violating this is a compilation error.
 With this keyword, programmers only have to check against pointers explicitly marked as nullable.
+Checking whether a pointer's null for non nullable ones will receive a warning.
 Applying this to function arguments means less argument cleansing.
 Applying this to function return values means making that function much more user-friendly.
