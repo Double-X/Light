@@ -103,5 +103,8 @@ The namespace surface can be imported and used anywhere.
 The namespace middle can only be used by namespace subset ans superset, and imported and/or used by namespace foreign1 and foreign2.kernel. Whether foreign2 can access middle depends on the foreign2.kernel access modifiers.
 Note that even namespace surface can't use its inner namespace middle, even though the latter can use the former.
 The namespace outer can be imported and/or used by all namespaces other than foreign2.kernel and foreign2, including all their inner namespaces.
-The namespace inner can only be used by namespace surface, outer and core. Even the namespace middle can't use it as it's not enclosing the former.
+The namespace inner can only be used by namespace surface, outer, core and leaked. Even the namespace middle can't use it as it's not enclosing the former.
 The namespace core can only be used by namespace leaked.
+The namespace sharable namespace surface.middle.superset won't compile as its whitelist isn't a subset of that of surface.middle.
+The namespace sharable namespace surface.outer.subset won't compile as its blacklist isn't a superset of that of surface.outer.
+The namespace public namespace surface.outer.inner.core.leaked won't compile as it's public but enclosed by a private namespace.
