@@ -1,0 +1,6 @@
+safe is a keyword for functions in Light Procedure.
+A function is said to be safe if and only if calling it can never crash the program.
+There are built-in safe functions and operators.
+A function can only be marked as safe if and only if all its statements are safe or it has a try-catch-finally block.
+The syntax of the safe keyword is as follows:
+safe void test();
