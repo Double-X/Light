@@ -1,0 +1,107 @@
+namespace is a keyword at the file level in Light Procedure.
+
+Its syntax is as follows:
+public namespace surface {
+    sharable namespace middle {
+        whitelist: {
+            foreign1,
+            foreign2.kernel
+        }
+        protected sharable namespace subset {
+            whitelist: {
+                foreign1
+            }
+        }
+        sharable namespace superset {
+            whitelist: {
+                foreign1,
+                foreign2 // Compilation error
+            }
+        }
+    }
+    sharable namespace outer {
+        blacklist: {
+            foreign1.kernel,
+            foreign2
+        }
+        sharable namespace subset {
+            foreign1.kernel,
+            foreign2.kernel // Compilation error
+        }
+        protected sharable namespace superset {
+            foreign1,
+            foreign2
+        }
+        protected namespace inner {
+            private namespace core {
+                // Compilation error
+                public namespace leaked {
+                }
+                //
+            }
+        }
+    }
+}
+Which is equivalent to:
+public namespace surface;
+sharable namespace surface.middle {
+    whitelist: {
+        foreign1,
+        foreign2.kernel
+    }
+}
+sharable namespace surface.middle.subset {
+    whitelist: {
+        foreign1
+    }
+}
+sharable namespace surface.middle.superset {
+    whitelist: {
+        foreign1,
+        foreign2 // Compilation error
+    }
+}
+sharable namespace surface.outer {
+    blacklist: {
+        foreign1.kernel,
+        foreign2
+    }
+}
+sharable namespace surface.outer.subset {
+    blacklist: {
+        foreign1.kernel,
+        foreign2.kernel // Compilation error
+    }
+}
+sharable namespace surface.outer.superset {
+    blacklist: {
+        foreign1,
+        foreign2
+    }
+}
+protected namespace surface.outer.inner;
+private namespace surface.outer.inner.core;
+public namespace surface.outer.inner.core.leaked; // Compliation error
+
+A namespace must be marked as public, sharable, protected and/or private.
+A namespace can be public, sharable, sharable protected, protected or private.
+
+A public namespace can be used by its inner namespaces, and imported or used anywhere.
+A sharable namespace can be used by its inner namespaces, but only be imported or used by namespaces within the white list of the former or out of the black list of the latter.
+A sharable namespace without a nonempty white list or nonempty black list, or with both a white list and a black list, is a compilation error.
+A protected namespace can't be imported or used by any other namespaces. Only its inner namespaces and the enclosing namespaces can use the former.
+A private namespace can't be imported or used by any other namespaces. Only its inner namespaces and innermost enclosing namespace can use the former.
+The outermost namespace must be public or sharable.
+A public namespace can have any inner namespaces.
+A sharable namespace can only have sharable or private namespaces as its inner namespaces.
+A sharable namespace being an inner namespace of another sharable namespace must have a stricter whitelist or looser blacklist.
+A protected namespace can only have protected or private namespaces as its inner namespaces.
+A private namespace can only have private namespaces as its inner namespaces.
+
+In this case, surface is a namespace which contains the namespace outer, which contains the namespace inner, which contains the namespace core.
+The namespace surface can be imported and used anywhere.
+The namespace middle can only be used by namespace subset ans superset, and imported and/or used by namespace foreign1 and foreign2.kernel. Whether foreign2 can access middle depends on the foreign2.kernel access modifiers.
+Note that even namespace surface can't use its inner namespace middle, even though the latter can use the former.
+The namespace outer can be imported and/or used by all namespaces other than foreign2.kernel and foreign2, including all their inner namespaces.
+The namespace inner can only be used by namespace surface, outer and core. Even the namespace middle can't use it as it's not enclosing the former.
+The namespace core can only be used by namespace leaked.
