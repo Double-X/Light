@@ -1,7 +1,8 @@
 Pure is a keyword for functions in Light Procedure.
+This keyword can't be used with idempotent nor nullipotent for the same function. Violating this is a compilation error.
 A function is pure if and only if it causes no side effects and always return the same value given the same arguments.
 There are built-in pure functions and operators.
 A function can be marked as pure if and only if all its statements are pure. Violating this is a compilation error.
-While this bans pure functions having impure statements, the compiler can be set to turn the above violation from error to warning.
+The compiler can be set to issue warnings rather than errors for pure functions violating this rule.
 All functions marked as pure can be optimized by the compiler due to referential transparency.
-Note that a pure function is always nullipotent, while the converse isn't necessarily true.
+Note that a pure function is always nullipotent which is always idempotent, while the converse isn't necessarily true.
