@@ -1,5 +1,5 @@
 nullipotent is a keyword for functions in Light Procedure.
-This keyword can't be used with idempotent nor pure for the same function.
+This keyword can't be used with idempotent nor pure for the same function. Violating this is a compilation error.
 A function is said to be nullipotent if and only if it causes no side effects.
 There are built-in nullipotent functions and operators.
 A function can only be marked as nullipotent if and only if all its statements are nullipotent or pure. Violating this is a compilation error.
