@@ -1,0 +1,4 @@
+throws is a keyword for functions in Light Procedure.
+If a function can throw an exception, it must be declared this way:
+void function() throws exception;
+The functions calling those throwing exceptions must either catch them or throw those exceptions themselves as well.
