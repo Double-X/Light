@@ -1,0 +1,7 @@
+exception is a keyword for functions in Light Procedure.
+exception is a special struct in this form:
+{
+    char* message;
+    char** stacktrace;
+    exception* cause;
+}
