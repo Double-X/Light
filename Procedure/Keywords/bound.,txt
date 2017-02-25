@@ -5,12 +5,15 @@ If the pointed function is marked as pure and the pointer is constant, the compi
 If the pointed function is marked as nullipotent or the pointer is not constant, the compiler is unlikely to be able to check the bound at compile time.
 If the compiler can't check the bound at compile time, programmers must do so at run time. Violating this is a compilation error.
 The function pointer of the bound keyword for a function itself must be nullipotent, take no arguments and return a boolean. Violating this is a compilation error.
+Placing the function pointer of the bound keyword for a function itself right above and below that function means they're the precondition and postcondition respectively.
 Its syntax is as follows:
 Constant/variable declaration -
 bound fptr var udouble var1 = a;
 If a doesn't pass the bound checking, the compiler will issue an error.
 Function declaration -
-bound fptr1 char[] toChars(bound fptr2 short var1) bound ftpr3;
+bound ftpr3; // Precondition
+bound fptr1 char[] toChars(bound fptr2 short var1);
+bound ftpr4; // Postcondition
 If the compiler can't check the bound for var1 at compile time, programmers must do so at run time:
 if (fptr2(var1) && fptr3()) {
     return toChars(var1);
