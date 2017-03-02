@@ -1,0 +1,5 @@
+Each struct, when created, will know which pointers points to it.
+When any of those pointer points to something else and/oe dies, that struct will be immediately updated about this.
+When a pointer becomes pointing to that struct, that struct will be immediately updated about this.
+When that struct knows that it's pointed by no pointers, it'll immediately be freed.
+This approach will lead to memory leak when there are circular references, so the delete keyword is still needed in these cases.
