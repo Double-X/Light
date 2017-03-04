@@ -1,5 +1,6 @@
-Each struct, when created, will know which pointers points to it.
+Each struct, when created, will know which pointers points to it and its distance from the GC root.
 When any of those pointer points to something else and/oe dies, that struct will be immediately updated about this.
 When a pointer becomes pointing to that struct, that struct will be immediately updated about this.
+When a struct is updated about the changes of pointers pointing to it, its distance from the GC root will always be updated to that of the pointer having the shortest distance from the GC root.
 When that struct knows that it's pointed by no pointers, it'll immediately be freed.
-This approach will lead to memory leak when there are circular references, so the delete keyword is still needed in these cases.
+For circular references, this will lead to memory leak, so the delete keyword is still useful.
