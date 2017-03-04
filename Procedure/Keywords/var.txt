@@ -1,0 +1,12 @@
+var is a keyword for variables and arguments in Light Procedure.
+By default, variables/arguments without the var keyword are constants.
+For pointers, having no var keywords also means they're pointers to constants.
+For instance, this is a constant pointer to a constant:
+int* ptr1;
+This is a pointer to a constant:
+var int* ptr1;
+This is a constant pointer:
+int* var ptr1;
+This is a pointer:
+var int* var ptr1;
+Using the var keyword for arguments will receive a warning.
