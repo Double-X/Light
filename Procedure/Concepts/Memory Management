@@ -3,6 +3,6 @@ Those pointers will also mark the depth of itself and that of the struct it poin
 The pointer distance is the difference between those depth.
 When any of those pointer points to something else and/oe dies, that struct will be immediately updated about this.
 When a pointer becomes pointing to that struct, that struct will be immediately updated about this.
-When a struct is updated about the changes of pointers pointing to it, its depth from the GC root will always be updated to that of the pointer having the shortest depth from the GC root.
+When a struct is updated about the changes of pointers pointing to it, its depth from the GC root will always be updated to that of the pointer having the largest depth from the GC root.
 When that struct knows that it's pointed by no pointers, it'll immediately be freed.
 For circular references, this will lead to memory leak, so the delete keyword is still useful.
