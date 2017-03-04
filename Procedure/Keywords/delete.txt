@@ -1,0 +1,3 @@
+delete is a keyword for pointers in Light Procedure.
+It frees the memory pointed by the pointer using this keyword.
+Using this keyword will receive a warning.
