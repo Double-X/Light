@@ -11,9 +11,9 @@ Constant/variable declaration -
 bound fptr var udouble var1 = a;
 If a doesn't pass the bound checking, the compiler will issue an error.
 Function declaration -
-bound ftpr3; // Precondition
+precond ftpr3; // Precondition
 bound fptr1 char[] toChars(bound fptr2 short var1);
-bound ftpr4; // Postcondition
+postcond ftpr4; // Postcondition
 If the compiler can't check the bound for var1 at compile time, programmers must do so at run time:
 if (fptr2(var1) && fptr3()) {
     return toChars(var1);
