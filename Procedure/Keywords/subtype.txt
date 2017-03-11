@@ -1,0 +1,6 @@
+subtype is a keyword to declare subtypes in Light Procedure.
+A subtype is a type with additional bounds.
+Its syntax is as follows:
+subtype newType bound ftpr oldType
+ftpr must be a function pointer pointing to a pure function accepting exactly 1 argument, which is the value of newType.
+Also, newType is oldType but oldType is not newType.
