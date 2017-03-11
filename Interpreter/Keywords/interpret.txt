@@ -1,0 +1,6 @@
+interpret is a keyword in Light Interpreter.
+It can be used on namespaces, functions and variables.
+An interpreted namespace can import and use both compiled and interpreted namespaces, and can include both compiled and interpreted functions and variables.
+A compiled namespace can only import and use compiled namespaces, and can only include compiled functions and variables.
+An interpreted function can call both compiled and interpreted functions and use both compiled and interpreted variables.
+A compiled function can only call compiled functions and use compiled variables.
