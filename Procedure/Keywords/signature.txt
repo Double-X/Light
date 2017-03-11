@@ -1,0 +1,14 @@
+signature is a keyword for function pointers in Light Procedure.
+signature is a special type of struct specifying a function's precondition, return type, argument list and postconditions.
+Its syntax is as follows:
+signature sign1 = {
+    precond: ftpr1,
+    return: int bound ftpr2,
+    args: [float bound ftpr3, double],
+    postcond: null // No postcondition
+};
+A function matches a signature if and only if:
+1. Its precondition is not stricter than that of the signature
+2. Its return type is not looser than that of the signature
+3. It has the same number of arguments as those of the signature and all of the former are not stricter than their counterparts in the latter
+4. Its postcondition is not looser than that of the signature
