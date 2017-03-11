@@ -1,0 +1,5 @@
+By default, types should be explicitly declared in Light Procedure.
+If they are not so, the compiler will try to infer the type.
+For value types, the type will be inferred from that of the assigned values.
+For structs, the type will be inferred from its contained field being used.
+For function pointers, type inference is the same as signature checking.
