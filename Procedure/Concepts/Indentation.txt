@@ -1,0 +1,16 @@
+Without braces, indentation becomes matter.
+1 indentation level will take the role of braces.
+For instance:
+a
+if (b) {
+    c;
+}
+d
+Is the same as:
+a
+if (b)
+    c
+d
+By default, x indentation levels are just 4x spaces. This is configurable.
+The same applies to semicolons.
+2 lines will be regarded as 1 line if and only if the 1st one doesn't end with a semicolon and the 2nd one has 2 indentation levels relative to the 1st one.
