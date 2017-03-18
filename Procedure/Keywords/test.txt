@@ -1,0 +1,4 @@
+test is a keyword in Light Pocedure.
+It's used for namespaces and functions.
+A namespace with this keyword means it's a namespace to be tested.
+A function with this keyworfd in a namespace with this keyword means it's a function to be tested.
